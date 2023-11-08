@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ------------------------------- VUE CDN ------------------------------- -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <title>WeatherGraz</title>
 </head>
+
 <body>
-    <h1>Barcelona</h1>
-    <h3>33*</h3>
+
+    <div id="app" class="container">
+        <h1>{{ location.name }}</h1>
+        <h3>{{ current.temp_c }}*</h3>
 
 
-    <script src="js/connectionManager.js"></script>
-    <script src="js/main.js"></script>
+        <div v-for="location.length">
+            <p>{{data}}</p>
+        </div>
+
+    </div>
+
+
+    <script src="js/communicationManager.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
 </body>
+
 </html>
