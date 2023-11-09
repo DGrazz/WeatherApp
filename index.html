@@ -7,6 +7,7 @@
 
     <!-- ------------------------------- VUE CDN ------------------------------- -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 
     <title>WeatherGraz</title>
 </head>
@@ -14,13 +15,12 @@
 <body>
 
     <div id="app" class="container">
+
+        <input type="text" placeholder="Nombre de la ciudad" v-model="cityName" @input="searchCity">
+
         <h1>{{ location.name }}</h1>
         <h3>{{ current.temp_c }}°</h3>
 
-
-        <div v-for="location.length">
-            <p>{{data}}</p>
-        </div>
 
     </div>
 
