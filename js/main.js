@@ -8,6 +8,7 @@ createApp({
             cityName: "",
             location: {},
             current: {},
+            isDay: true,
 
             jsonLocation: {},
             jsonCurrent: {},
@@ -15,13 +16,14 @@ createApp({
     },
     methods: {
 
-        searchCity() {
-            
+        async searchCity() {
             if (this.cityName) {
-                this.fetchCity(this.cityName);
+                await this.fetchCity(this.cityName);
+                this.updateIsDay();
             }else{
                 console.log("No hay ciudades para buscar");
             }
+            
         },
 
         async fetchCity() {
@@ -41,6 +43,14 @@ createApp({
                 console.log(result);
             } catch (error) {
                 console.error(error);
+            }
+        },
+
+        updateIsDay() {
+            if (this.current.is_day == 1) {
+                this.isDay = true;
+            }else{
+                this.isDay = false;
             }
         },
 
