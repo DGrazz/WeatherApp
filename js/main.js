@@ -1,6 +1,6 @@
 const { createApp } = Vue
 
-// import { getTiempo } from "./communicationManager.js";
+import { getTiempo } from "./communicationManager.js";
 
 createApp({
     data() {
@@ -8,6 +8,9 @@ createApp({
             cityName: "",
             location: {},
             current: {},
+
+            jsonLocation: {},
+            jsonCurrent: {},
         }
     },
     methods: {
@@ -35,6 +38,7 @@ createApp({
                 const result = await response.json();
                 this.location = result.location;
                 this.current = result.current;
+                console.log(result);
             } catch (error) {
                 console.error(error);
             }
@@ -42,13 +46,12 @@ createApp({
 
     },
     created() {
-        // getTiempo().then(data => {
-        //     this.location = data.location;
-        //     this.current = data.current;
-        //     console.log(this.location);
-        //     console.log(this.current);
-        // });
-    }
+        getTiempo().then(data => {
+            this.jsonLocation = data.location;
+            this.jsonCurrent = data.current;
+        });
+    },
+
 
 
 

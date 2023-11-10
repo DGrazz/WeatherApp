@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ------------------------------- VUE CDN ------------------------------- -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/2c54a840da.js" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 
     <title>WeatherGraz</title>
@@ -18,12 +21,26 @@
 
         <input type="text" placeholder="Nombre de la ciudad" v-model="cityName" @input="searchCity">
 
-        <h1>{{ location.name }}</h1>
-        <h3>{{ current.temp_c }}°</h3>
+        <div v-if="cityName" class="content">
+            <h1>{{ location.name }} / {{ location.country }}</h1>
+            <h3>{{ current.temp_c }}°</h3>
+            <h3 v-if="current.is_day == 1"><i class="fa-solid fa-sun"></i></h3>
+            <h3 v-if="current.is_day == 0"><i class="fa-solid fa-moon"></i></h3>
+
+        </div>
+
+
+        <p>{{ jsonLocation }}</p>
+        <p>{{ jsonCurrent }}</p>
+
+        <div class="video">
+            <iframe src="https://lottie.host/?file=ff5c71ed-6495-4ad9-a6d1-e5fb2982fc14/yGvfCnrPXk.json"></iframe>
+            <iframe src="https://lottie.host/?file=621ea16e-8c4d-4853-a155-905af5d1be16/FHMpmhxl3M.json"></iframe>
+        </div>
+        
 
 
     </div>
-
 
     <script src="js/communicationManager.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
