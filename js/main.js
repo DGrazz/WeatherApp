@@ -1,24 +1,27 @@
 const { createApp } = Vue
 
-// import { getTiempo } from "./communicationManager.js";
-
 createApp({
     data() {
         return {
             cityName: "",
             location: {},
             current: {},
+            isDay: true,
+
+            jsonLocation: {},
+            jsonCurrent: {},
         }
     },
     methods: {
 
-        searchCity() {
-            
+        async searchCity() {
             if (this.cityName) {
-                this.fetchCity(this.cityName);
+                await this.fetchCity(this.cityName);
+                this.updateIsDay();
             }else{
                 console.log("No hay ciudades para buscar");
             }
+            
         },
 
         async fetchCity() {
@@ -35,20 +38,25 @@ createApp({
                 const result = await response.json();
                 this.location = result.location;
                 this.current = result.current;
+                console.log(result);
             } catch (error) {
                 console.error(error);
             }
         },
 
+        updateIsDay() {
+            if (this.current.is_day == 1) {
+                this.isDay = true;
+            }else{
+                this.isDay = false;
+            }
+        },
+
     },
     created() {
-        // getTiempo().then(data => {
-        //     this.location = data.location;
-        //     this.current = data.current;
-        //     console.log(this.location);
-        //     console.log(this.current);
-        // });
-    }
+        
+    },
+
 
 
 
