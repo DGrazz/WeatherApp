@@ -23,19 +23,20 @@
     justify-content: center;
     align-items: center;
 }
+
 .title{
-    max-width: 50%;
+    width: 85%;
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     color: var(--color-white);
 }
 .ciudad{
     color: var(--color-yellow);
 }
 .infoTemporal{
-    background-color: var(--color-yellow);
-    padding: 3px 20px;
-    border-radius: 50px;
+    text-decoration: underline var(--color-yellow);
+    text-underline-position: under;
 }
 .inputCity{
     padding: 10px 20px;
