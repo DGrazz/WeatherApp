@@ -19,17 +19,17 @@
 
     <div id="app" class="container">
 
-        <input class="inputCity" type="text" placeholder="Nombre de la ciudad" v-model="cityName" @input="searchCity">
+        <input type="text" placeholder="Nombre de la ciudad" v-model="cityName" @input="searchCity">
 
-        <div class="weather">
-            <h1 class="cityName">Barcelona</h1>
-            <h3 class="temperature">17</h3>
-            <div class="isDay" v-if="isDay">
+        <div v-if="cityName && location" class="content">
+            <h1>{{ location.name }} / {{ location.country }}</h1>
+            <h3>{{ current.temp_c }}°</h3>
+            <h3 v-if="isDay">
                 <iframe src="https://lottie.host/?file=ff5c71ed-6495-4ad9-a6d1-e5fb2982fc14/yGvfCnrPXk.json"></iframe>
-            </div>
-            <div class="isDay" v-if="!isDay">
+            </h3>
+            <h3 v-if="!isDay">
                 <iframe src="https://lottie.host/?file=621ea16e-8c4d-4853-a155-905af5d1be16/FHMpmhxl3M.json"></iframe>
-            </div>
+            </h3>
 
         </div>
 

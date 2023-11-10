@@ -1,7 +1,5 @@
 const { createApp } = Vue
 
-import { getTiempo } from "./communicationManager.js";
-
 createApp({
     data() {
         return {
@@ -56,10 +54,7 @@ createApp({
 
     },
     created() {
-        getTiempo().then(data => {
-            this.jsonLocation = data.location;
-            this.jsonCurrent = data.current;
-        });
+        
     },
 
 
