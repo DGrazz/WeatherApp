@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
 
 :root{
-    --color-principal: #48ccff;
+    --color-blue: #48ccff;
+    --color-purpledary: #7546b8;
+    --color-yellow: #fcbf48;
     --color-white: #fff;
 }
 
@@ -13,7 +15,7 @@
 }
 
 .container{
-    background-color: var(--color-principal);
+    background-color: var(--color-blue);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -21,21 +23,35 @@
     justify-content: center;
     align-items: center;
 }
-
+.title{
+    max-width: 50%;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-white);
+}
+.ciudad{
+    color: var(--color-yellow);
+}
+.infoTemporal{
+    background-color: var(--color-yellow);
+    padding: 3px 20px;
+    border-radius: 50px;
+}
 .inputCity{
     padding: 10px 20px;
     border-radius: 30px;
     margin-bottom: 10px;
-    border: 1px solid var(--color-principal);
+    border: 1px solid var(--color-blue);
     outline: none;
     transition: .2s;
 }
 .inputCity:focus{
-    color: var(--color-principal);
+    color: var(--color-blue);
     border: 1px solid black;
 }
 
 .weather{
+    min-height: 288px;
     text-align: center;
 }
 .cityName{

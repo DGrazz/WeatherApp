@@ -19,11 +19,14 @@
 
     <div id="app" class="container">
 
+        <h1 class="title" v-if="cityName.length < 3 || !location">INTRODUCE UNA <span class="ciudad">CIUDAD</span> PARA VER SU <span class="infoTemporal">INFORMACION DEL TEMPORAL</span>
+        </h1>
+
         <input class="inputCity" type="text" placeholder="Nombre de la ciudad" v-model="cityName" @input="searchCity">
 
-        <div class="weather">
-            <h1 class="cityName">Barcelona</h1>
-            <h3 class="temperature">17</h3>
+        <div class="weather" v-if="cityName.length >= 3 && location">
+            <h1 class="cityName">{{ location.name }}</h1>
+            <h3 class="temperature">{{ current.temp_c }}°</h3>
             <div class="isDay" v-if="isDay">
                 <iframe src="https://lottie.host/?file=ff5c71ed-6495-4ad9-a6d1-e5fb2982fc14/yGvfCnrPXk.json"></iframe>
             </div>
@@ -35,7 +38,6 @@
 
     </div>
 
-    <script src="js/communicationManager.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
 </body>
 
