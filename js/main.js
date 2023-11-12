@@ -7,7 +7,6 @@ createApp({
             location: {},
             current: {},
             isDay: true,
-
             jsonLocation: {},
             jsonCurrent: {},
         }
