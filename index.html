@@ -20,7 +20,7 @@
     <div id="app" class="container">
 
         
-        <h1 class="title" v-if="cityName.length < 3 || !location">INTRODUCE UNA <span class="ciudad">CIUDAD</span> PARA VER <span class="infoTemporal">INFORMACION DEL TEMPORAL</span>
+        <h1 class="title" v-if="cityName.length < 3 || !location">INTRODUCE UNA <span class="ciudad">CIUDAD</span> PARA VER <span class="infoTemporal">INFORMACIÓN DEL TEMPORAL</span>
         </h1>
 
         <input class="inputCity" type="text" placeholder="Nombre de la ciudad" v-model="cityName" @input="searchCity">
@@ -29,10 +29,28 @@
             <h1 class="cityName">{{ location.name }}</h1>
             <h3 class="temperature">{{ current.temp_c }}°</h3>
             <div class="isDay" v-if="isDay">
-                <iframe src="https://lottie.host/?file=ff5c71ed-6495-4ad9-a6d1-e5fb2982fc14/yGvfCnrPXk.json"></iframe>
+                <iframe class="icon" src="https://lottie.host/?file=ff5c71ed-6495-4ad9-a6d1-e5fb2982fc14/yGvfCnrPXk.json"></iframe>
             </div>
             <div class="isDay" v-if="!isDay">
-                <iframe src="https://lottie.host/?file=621ea16e-8c4d-4853-a155-905af5d1be16/FHMpmhxl3M.json"></iframe>
+                <iframe class="icon" src="https://lottie.host/?file=621ea16e-8c4d-4853-a155-905af5d1be16/FHMpmhxl3M.json"></iframe>
+            </div>
+
+        </div>
+
+        <div class="details" :class="{ day: isDay, night: !isDay }" v-if="cityName.length >= 3 && location">
+            <div class="detail">
+                <p class="detail__name">Sensación</p>
+                <p class="detail__info">{{ current.feelslike_c }}°</p>
+            </div>
+
+            <div class="detail">
+                <p class="detail__name">Humedad</p>
+                <p class="detail__info">{{ current.humidity }}%</p>
+            </div>
+
+            <div class="detail">
+                <p class="detail__name">Viento</p>
+                <p class="detail__info">{{ current.wind_kph }}Km/h</p>
             </div>
 
         </div>
