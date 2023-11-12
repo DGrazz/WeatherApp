@@ -39,16 +39,19 @@
 
         <div class="details" :class="{ day: isDay, night: !isDay }" v-if="cityName.length >= 3 && location">
             <div class="detail">
+                <i class="detail__icon fa-solid fa-temperature-half"></i>
                 <p class="detail__name">Sensación</p>
                 <p class="detail__info">{{ current.feelslike_c }}°</p>
             </div>
 
             <div class="detail">
+                <i class="detail__icon fa-solid fa-water"></i>
                 <p class="detail__name">Humedad</p>
                 <p class="detail__info">{{ current.humidity }}%</p>
             </div>
 
             <div class="detail">
+                <i class="detail__icon fa-solid fa-wind"></i>
                 <p class="detail__name">Viento</p>
                 <p class="detail__info">{{ current.wind_kph }}Km/h</p>
             </div>
