@@ -1,5 +1,5 @@
 # WeatherGraz
-App que te da informacion del tiempo de la ciudad que desees.
+App que da informacion del tiempo de la ciudad que desees.
 
 
 Web
