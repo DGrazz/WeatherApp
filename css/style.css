@@ -31,7 +31,7 @@
     margin-bottom: 70px;
     color: var(--color-white);
 }
-.ciudad{
+.ciudadText{
     background-color: var(--color-yellow);
     padding: 0 10px;
     border-radius: 40px;
@@ -62,6 +62,11 @@
     font-size: 36px;
     font-weight: 700;
     color: var(--color-white);
+}
+.country{
+    font-size: 20px;
+    color: var(--color-white);
+    opacity: .7;
 }
 .temperature{
     font-size: 60px;
@@ -94,6 +99,9 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+.detail__icon{
+    font-size: 26px;
 }
 .detail__info{
     font-size: 16px;
